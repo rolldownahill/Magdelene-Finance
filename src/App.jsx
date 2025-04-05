@@ -53,7 +53,7 @@ function App() {
         }}
       >
         <Typography variant="h6" sx={{ fontWeight: 'bold', padding: '10px 0' }}>
-          Finance App
+          You're Broke
         </Typography>
         <List>
           {['Home', 'Account', 'Dashboard'].map(
@@ -95,6 +95,7 @@ function App() {
           <TextField
             label="Purchase Price"
             type="number"
+            inputProps={{ min: 0 }}
             variant="outlined"
             value={purchasePrice}
             onChange={(e) => setPurchasePrice(e.target.value)}

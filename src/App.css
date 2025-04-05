@@ -1,0 +1,43 @@
+body {
+  background-color: #f5f7fa;
+  margin: 0;
+  display: flex;
+  height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  flex-grow: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex-grow: 1;
+  padding-left: 220px; /* Makes space for sidebar */
+}
+
+.header {
+  text-align: left;
+}
+
+.interactiveFields {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+}
+
+.stockList {
+  width: 100%;
+  text-align: left;
+}
+
+.stock-scroll {
+  max-height: 300px;
+  overflow-y: auto;
+  width: 100%;
+}

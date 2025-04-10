@@ -9,6 +9,8 @@ import {
   List,
   ListItem,
   ListItemText,
+  useMediaQuery,
+  Stack,
 } from '@mui/material';
 import './App.css';
 import { useStocks } from './stockContext'; // Custom context hook
@@ -18,6 +20,8 @@ function App() {
   const [quantity, setQuantity] = useState('');
   const [purchasePrice, setPurchasePrice] = useState('');
   const { stocks, addStock } = useStocks();
+
+  const isMobile = useMediaQuery('(max-width:600px)');
 
   // 🧠 useCallback: fetch real-time stock price (only supports IBM with demo key)
   const fetchStockPrice = useCallback(async (symbol) => {
@@ -114,7 +118,14 @@ function App() {
           <h1>Finance Dashboard</h1>
         </div>
 
-        <div className="interactiveFields">
+        <Stack
+          className="interactiveFields"
+          direction={isMobile ? 'column' : 'row'}
+          spacing={2}
+          alignItems="center"
+          justifyContent="flex-start"
+          sx={{ flexWrap: 'wrap', marginBottom: '20px' }}
+        >
           <TextField
             label="Stock Symbol"
             variant="outlined"
@@ -140,10 +151,14 @@ function App() {
             onChange={(e) => setPurchasePrice(e.target.value)}
             size="small"
           />
-          <Button variant="contained" onClick={handleAddStock}>
+          <Button
+            variant="contained"
+            onClick={handleAddStock}
+            sx={{ whiteSpace: 'nowrap' }}
+          >
             Add Stock
           </Button>
-        </div>
+        </Stack>
 
         <div className="stockList">
           <h1>Stock List</h1>
